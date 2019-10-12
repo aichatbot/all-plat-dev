@@ -1,5 +1,9 @@
 import React from 'react'
-import {createAppContainer,createSwitchNavigator,createStackNavigator,createBottomTabNavigator,createDrawerNavigator} from 'react-navigation'
+import {createAppContainer,createSwitchNavigator} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
+import {createDrawerNavigator} from 'react-navigation-drawer'
+import {createBottomTabNavigator} from 'react-navigation-tabs'
+
 import AuthLoadingScreen from './screen/AuthLoadingScreen'
 import {Icon,Root} from 'native-base'
 

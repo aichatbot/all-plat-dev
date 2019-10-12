@@ -3,5 +3,6 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "sk-fc2"
+  "urlRandomness": "vv-mjt",
+  "https": false
 }

@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 19197,
-  "expoServerNgrokUrl": "https://sk-fc2.aichatbot.bbs.exp.direct",
-  "packagerNgrokUrl": "https://packager.sk-fc2.aichatbot.bbs.exp.direct",
-  "ngrokPid": 19211
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Icon, Text, Button } from 'native-base';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 const HomeScreen = (props) => {
   const { navigation } = props;
