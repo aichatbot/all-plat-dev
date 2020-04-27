@@ -9,7 +9,7 @@ const DB = 'mongodb://localhost:27017/bbs';
 
 mongoose.connect(
   DB,
-  { useNewUrlParser: true, useCreateIndex: true },
+  { useNewUrlParser:true, useCreateIndex:true, useUnifiedTopology:true },
   (err) => {
     if (err) throw err;
     console.log('已连接到数据库...');

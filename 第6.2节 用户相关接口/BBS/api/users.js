@@ -150,14 +150,12 @@ const apis = (app) => {
         const user = await User.findOne({
           username,
           token,
-        });
+        }).select('-password -token');
         if (!user) {
           return res.status(400).json({
             message: 'token已过期，请重新登陆',
           });
         }
-        user.password = null;
-        user.token = null;
         return res.json({
           message: '成功验证',
           data: user,
@@ -260,14 +258,13 @@ const apis = (app) => {
         });
       }
       const user = await User.findOne({ username })
+        .select('-password -token')
         .populate('threads', 'title posttime');
       if (!user) {
         return res.status(400).json({
           message: '该用户不存在',
         });
       }
-      user.password = null;
-      user.token = null;
       return res.json({
         data: user,
       });

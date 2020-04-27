@@ -7,9 +7,9 @@ const api = (app) => {
 
       const pyshell = new PythonShell(
         'seg.py',
-        { scriptPath: '/Users/aichatbot/all-plat-dev/Chapter 32/tokenization/src' },
+        { scriptPath: '/Users/aichatbot/tokenization/src' },
       );
-      pyshell.send(sentence);
+      pyshell.send(encodeURI(sentence));
       pyshell.on('message', (message) => {
         const output = JSON.parse(message);
         return res.json({

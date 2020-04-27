@@ -1,14 +1,14 @@
-import Crypto from 'crypto';
-import uuid from 'uuid';
-import multer from 'multer';
+const Crypto = require('crypto');
+const uuid = require('uuid');
+const multer = require('multer');
 
-import User from '../model/User';
+const User = require('../model/User');
 
 const upload = multer({
   dest: './static/upload',
 });
 
-const userAPIs = (app) => {
+const apis = (app) => {
   app.get('/api/users', async (req, res) => {
     try {
       const users = await User.find();
@@ -150,14 +150,12 @@ const userAPIs = (app) => {
         const user = await User.findOne({
           username,
           token,
-        });
+        }).select('-password -token');
         if (!user) {
           return res.status(400).json({
             message: 'token已过期，请重新登陆',
           });
         }
-        user.password = null;
-        user.token = null;
         return res.json({
           message: '成功验证',
           data: user,
@@ -260,14 +258,13 @@ const userAPIs = (app) => {
         });
       }
       const user = await User.findOne({ username })
+        .select('-password -token')
         .populate('threads', 'title posttime');
       if (!user) {
         return res.status(400).json({
           message: '该用户不存在',
         });
       }
-      user.password = null;
-      user.token = null;
       return res.json({
         data: user,
       });
@@ -278,5 +275,4 @@ const userAPIs = (app) => {
     }
   });
 };
-
-export default userAPIs;
+module.exports.apis = apis;

@@ -42,7 +42,7 @@ const serverRender = (req, res, next) => {
 
 mongoose.connect(
   DB,
-  { useNewUrlParser: true, useCreateIndex: true },
+  { useNewUrlParser:true, useCreateIndex:true, useUnifiedTopology:true },
   (err) => {
     if (err) throw err;
     console.log('已连接到数据库...');
