@@ -1,14 +1,14 @@
-const Crypto = require('crypto');
-const uuid = require('uuid');
-const multer = require('multer');
+import Crypto from 'crypto';
+import uuid from 'uuid';
+import multer from 'multer';
 
-const User = require('../model/User');
+import User from '../model/User';
 
 const upload = multer({
   dest: './static/upload',
 });
 
-const apis = (app) => {
+const userAPIs = (app) => {
   app.get('/api/users', async (req, res) => {
     try {
       const users = await User.find();
@@ -275,4 +275,4 @@ const apis = (app) => {
     }
   });
 };
-module.exports.apis = apis;
+export default userAPIs;
